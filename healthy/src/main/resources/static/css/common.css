@@ -1,0 +1,174 @@
+/* common */
+
+/* user */
+.user-tt {
+    text-align: center;
+    display: block;
+    margin: 8rem 2rem;
+    font-size: 3rem;
+    height: 1.5em;
+    line-height: 1.5;
+}
+.user-box {
+    margin: 0 2rem;
+    font-size: 2rem;
+    text-align: center;
+}
+.user-box .text {
+    width: 100%;
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+    height: 2.5em;
+    line-height: 2.5;
+    margin: 1rem 0;
+    background-color: transparent;
+    border-bottom: 1px solid #ddd;
+}
+.user-box .user-btn {
+    display: block;
+    width: 100%;
+    margin: 3rem 0;
+    font-size: 1.8rem;
+    height: 2.5em;
+    line-height: 2.5;
+    color: #fff;
+    background-color: #3fbbff;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+.user-box .gender-box {
+    width: 50%;
+    float: left;
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: 2em;
+    line-height: 2;
+    margin: 1rem 0;
+}
+.user-box input[type=number] {
+    -moz-appearance:textfield;
+}
+.user-box input[type=number]::-webkit-inner-spin-button,
+.user-box input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* query */
+.page {
+	position: absolute;
+	display: none;
+	overflow: hidden;
+	width: 100%;
+	min-height: 100%;
+	padding-bottom: 16%;
+}
+.back-home, .question-submit {
+    width: 50%;
+    font-size: 1.4rem;
+    height: 3em;
+	line-height: 3; 
+	display: inline-block;
+    text-align: center;
+}
+.back-home {
+    position: fixed;
+	bottom: 0;
+    left: 0;
+	color: #35373b;
+	background-color: #e6eaec;
+}
+.question-submit {
+    position: fixed;
+	bottom: 0;
+    right: 0;
+    color: #fff;
+    background-color: #269bff;
+    
+}
+.back-home.active { background-color: #269bff; }
+.page-home { display: block; }
+.page-home .title { 
+    text-align: center;
+    display: block;
+    margin: 2rem 2rem;
+    font-size: 3rem;
+}
+.page-home .title .bg{ 
+    font-weight: bold;
+    padding: 4rem 0;
+    font-size: 3rem;
+}
+.page-home .title .sm{ 
+    padding: 2rem 0;
+    font-size: 1.5rem;
+}
+.page-home .menu {
+    width: 20rem;
+    max-width: 80%;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+.page-home .menu li {
+	margin-bottom: 18%;
+    font-size: 1.9rem;
+}
+.page-home .menu li a {  
+    display: block;
+    text-align: center;
+    padding: .8rem;
+	color: #fff;
+	background-color: #3fbbff;;
+    border-radius: .7rem;
+}
+.page-home .menu li a.active { background-color: #fff; }
+
+/* list */
+.page-list .list-title{
+    padding: 4rem 1rem;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid #c4c4c4;
+}
+.list-content {
+    height: auto;
+    margin: 0 2rem;
+}
+.list-content .question-box {
+    padding: 2rem;
+    line-height: 1.5;
+    border-bottom: 1px dashed #c4c4c4;
+}
+.list-content .question-box .question {
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 2;
+}
+.list-content .question-box li {
+    display: block;
+    margin-left: 2rem;
+    font-size: 2rem;
+    line-height: 2;
+}
+.list-content .question-box li .answer {
+    vertical-align: middle;
+    height: 2rem;
+    width: 2rem;
+}
+.list-content .question-box li input.other {
+    vertical-align: middle;
+    font-size: 2rem;
+    height: 2em;
+    width: auto;
+    line-height: 2;
+    margin-left: .5rem; 
+    padding: 0 1rem;
+    color: #999;
+    background-color: transparent;
+    border-bottom: 1px solid #999;
+}
+.list-content .question-box li span {
+    color: red;
+}

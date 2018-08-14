@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="format-detection" content="telephone=no, address=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body class="w hidden">
+    <h1 class="user-tt">用户登录</h1>
+    <form class="user-box" name="input" action="/loginIdentify" method="post" id="loginform">
+        <input class="text" type="text" name="hospitalId" datatype="n6-16" errormsg="住院号是6-16位数字" value="" placeholder="请输入账号">
+        <input class="text" type="password" name="password" datatype="*6-18" errormsg="密码范围在6~18位之间!"value="" placeholder="请输入密码">
+        <input class="user-btn" type="submit" value="登&nbsp;&nbsp;陆">
+        <input class="user-btn" type="submit" id="register" value="注&nbsp;&nbsp;册">
+    </form>
+
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+    <script src="js/Validform_v5.3.2_min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#register").click(function(){
+                window.location.replace("/registpage");
+            })
+
+            $(".user-box").Validform();
+        })
+    </script>
+</body>
+</html>

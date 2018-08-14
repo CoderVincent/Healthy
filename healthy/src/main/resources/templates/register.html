@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>注册</title>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="format-detection" content="telephone=no, address=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body class="w hidden">
+    <h1 class="user-tt">用户注册</h1>
+    <form class="user-box" action="/addUser" method="post" name="input" id="registerform">
+        <input class="text" type="text" name="hospitalId" datatype="n6-16" errormsg="住院号是6-16位数字" value="" placeholder="住院号">
+        <input class="text" type="password" name="password" datatype="*6-18" errormsg="密码范围在6~18位之间！" value="" placeholder="密码">
+        <input class="text" type="text" name="name" value="" datatype="*" errormsg="请输入正确姓名" nullmsg="请填写真实姓名" placeholder="姓名">
+        <input class="text" type="text" name="phone" value="" datatype="m" nullmsg="请填写您的电话" errormsg="请输入正确的手机号码" placeholder="电话">
+        <input class="text age" type="number" name="age" datatype="n1-3" nullmsg="请填写您的年龄" errormsg="请输入正确年龄" value="" placeholder="年龄">
+        <div class="clearfix">
+            <label class="gender-box">
+                <input class="gender" name="sex" value="0" required="" type="radio"> 男
+            </label>
+            <label class="gender-box">
+                <input class="gender" name="sex" value="1" required="" type="radio"> 女
+            </label>
+        </div>
+        <input class="user-btn" type="submit" value="注&nbsp;&nbsp;册" id="test">
+    </form>
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/jquery.serializeJSON/2.9.0/jquery.serializejson.js"></script>
+    <script src="js/Validform_v5.3.2_min.js"></script>
+    <script type="text/javascript">
+        $(".user-box").Validform();
+    </script>
+</body>
+</html>

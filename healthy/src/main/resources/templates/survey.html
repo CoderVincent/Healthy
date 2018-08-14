@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>选择手术类型</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="format-detection" content="telephone=no, address=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/common.css">
+
+</head>
+
+<body class="w hidden">
+    <!-- 首页-手术类型选择 -->
+    <section class="page page-home">
+        <div class="title">
+            <p class="bg">新增随访记录</p>
+            <p class="sm">选择您的手术类型：</p>
+        </div>
+        
+        <div class="menu" id="j_homeMenu">
+            <ul class="">
+                <li class="menu_situation"><a href="javascript:void(0);">面 肌 痉 挛</a></li>
+                <li class="menu_plan"><a href="javascript:void(0);">三 叉 神 经 痛</a></li>
+                <li class="menu_lightspot"><a href="javascript:void(0);">癫 痫</a></li>
+            </ul>
+        </div>
+    </section>
+    <!-- 问题-面肌痉挛 -->
+    <section class="page page-list" id="j_listSituation">
+        <div class="list-title">面肌痉挛</div>
+        <div class="list-content">
+            <div id="1-1" class="question-box">
+                <p class="question">1. 面部是否抽动:</p>
+                <ul>
+                    <li><input class="answer" name="1-1" value="0" required="" type="radio"> 否</li>
+                    <li><input class="answer" name="1-1" value="1" required="" type="radio"> 是</li>
+                </ul>
+            </div>
+            <div id="1-2" class="question-box">
+                <p class="question">2. 是否存在听力下降、面瘫、吞咽困难等后遗症:</p>
+                <ul>
+                    <li><input class="answer" name="1-2" value="0" required="" type="radio"> 否</li>
+                    <li><input class="answer" name="1-2" value="1" required="" type="radio"> 是（请描述） <input class="other" type="text"><span>*</span> </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- 问题-三叉神经痛 -->
+    <section class="page page-list" id="j_listSituation">
+        <div class="list-title">三叉神经痛</div>
+        <div class="list-content">
+            <div id="2-1" class="question-box">
+                <p class="question">1. 原有的三叉神经痛是否还存在:</p>
+                <ul>
+                    <li><input class="answer" name="2-1" value="0" required="" type="radio"> 否</li>
+                    <li><input class="answer" name="2-1" value="1" required="" type="radio"> 是</li>
+                </ul>
+            </div>
+            <div id="2-2" class="question-box">
+                <p class="question">2. 是否存在面部麻木、面瘫、听力下降等后遗症:</p>
+                <ul>
+                    <li><input class="answer" name="2-2" value="0" required="" type="radio"> 否</li>
+                    <li><input class="answer" name="2-2" value="1" required="" type="radio"> 是（请描述） <input class="other" type="text" value=""><span>*</span> </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- 问题-癫痫 -->
+    <section class="page page-list" id="j_listSituation">
+        <div class="list-title">癫痫</div>
+        <div class="list-content">
+            <div id="3-1" class="question-box">
+                <p class="question">1. 癫痫是否发作:</p>
+                <ul>
+                    <li><input class="answer" name="3-1" value="0" required="" type="radio"> 否</li>
+                    <li><input class="answer" name="3-1" value="1" required="" type="radio"> 是（首次发作时间） <input class="other" type="text" value=""><span>*</span></li>
+                </ul>
+            </div>
+            <div id="3-2" class="question-box">
+                <p class="question">2. 发作次数（没有发作则填0）:</p>
+                <ul>
+                    <li><input class="other" type="text" value=""><span>*</span> </li>
+                </ul>
+            </div>
+            <div id="3-3" class="question-box">
+                <p class="question">3. 是否存在记忆力下降、语言迟钝、手足活动不灵活等后遗症:</p>
+                <ul>
+                    <li><input class="answer" name="3-3" value="0" required="" type="radio"> 否</li>
+                    <li><input class="answer" name="3-3" value="1" required="" type="radio"> 是（请描述） <input class="other" value="" type="text"><span>*</span> </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <input type="hidden" name="hospitalId" th:value="${hospitalId}">
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+    <script>
+        $(document).ready(function (){
+            // 插入返回、提交按钮
+            $('.page-list').append('<a class="back-home j_backHome" href="javascript:void(0);">返 回</a>');
+            $('.page-list').append('<a class="question-submit j_submit" id="submit">提 交</a>');
+            // 进入问题
+            var $menu = $('#j_homeMenu');
+            $menu.find('li a').click(function () {
+                var index = $(this).parent('li').index();
+                var text = $(this).text();
+                $('.page-list').eq(index).show();
+                $('.page-home').hide();
+            });
+
+            // 返回病情选择
+            $('.j_backHome').click(function () {
+                $(this).parents('.page-list').hide(); 
+                $('.page-home').show();
+            });
+
+            function stripscript(s)
+            {
+                var pattern = new RegExp("[`~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）——|{}【】‘；：”“'。，、？]")
+                var rs = "";
+                for (var i = 0; i < s.length; i++) {
+                    rs = rs+s.substr(i, 1).replace(pattern, '');
+                }
+                return rs.substr(2);
+            }
+
+            $("a[id='submit']").click(function () {
+                var listcontent = $(this).parent('.page-list').children('.list-content')
+                var deseaseName = $(this).parent('.page-list').children('.list-title').text();
+                var hospitalId = $("input[type='hidden']").val();
+                var timestamp = Date.parse(new Date());
+                var qa = {};
+                var flag = false;
+
+                listcontent.children('.question-box').each(function () {
+                    var questionValue = $(this).children('.question').text();
+                    var questionValue = stripscript(questionValue)
+                    //根据li的个数判断问题的类型
+                    var numberofli = $(this).find('ul li').length;
+
+                    var val=$(this).find('ul li').children("input:radio[class='answer']:checked").val();
+                    if(val == null){
+                        flag = true
+                    }else{
+                        flag = false
+                    }
+
+                    if(numberofli == 1){
+                        //没有是否，只有问答
+                        var answer = $(this).find('ul li input').val();
+                        if(answer == null||answer == ""){
+                            flag = true
+                        }else{
+                            flag = false
+                        }
+                        qa[questionValue] = answer;
+                    }else if(numberofli == 2){
+                        //有是否，是要填理由
+                        var val = $('input:radio[class="answer"]:checked').val();
+                        if(val == 1){
+                            var other = $(this).find('ul li .other').val();
+                            qa[questionValue] = "是"+other;
+                        }else{
+                            qa[questionValue] = "否";
+                        }
+                    }
+                });
+
+                var data = {
+                    hospitalId:hospitalId,
+                    timestamp:timestamp,
+                    qa:qa,
+                    deseaseName:deseaseName
+                }
+
+                var mydata = JSON.stringify(data)
+
+                if(flag){
+                    alert("您还有未完成的选项")
+                }else{
+                    $.ajax({
+                        url:'/saveRecord',
+                        type:'post',
+                        contentType:'application/json',
+                        data:mydata,
+                        success:function (data) {
+                            if(data == "success"){
+                                window.location.href="/success";
+                            }else{
+                                window.location.href="/fail";
+                            }
+                        }
+                    })
+                }
+            });
+        });
+    </script>
+</body>
+</html>
